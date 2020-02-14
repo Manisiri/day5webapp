@@ -21,7 +21,7 @@ spec:
       containers:
       - image: dockerashu/eyappday5:v1
         name: eyappday5
-        imageiPullPolicy: Always
+        imagePullPolicy: Always
         resources: {}
 status: {}
 ---
