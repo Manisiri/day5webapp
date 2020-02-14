@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mkdepday5
+  name: mkdepday5
+  namespace: mkp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mkdepday5
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mkdepday5
+    spec:
+      containers:
+      - image: dockerashu/eyappday5:v1
+        name: eyappday5
+        imageiPullPolicy: Always
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mkdepsvc1
+  name: mkdepsvc1
+  namespace: mkp 
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mkdepday5
+  type: NodePort
+status:
+  loadBalancer: {}
